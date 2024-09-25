@@ -1,0 +1,67 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+</head>
+<body>
+
+    <!-- Input fields for numbers -->
+    <input type="number" id="input1" placeholder="Pehla input">
+    <input type="number" id="input2" placeholder="Dusra input">
+    
+    <!-- Dropdown for selecting operation -->
+    <select id="operation">
+        <option value="plus">Plus (+)</option>
+        <option value="minus">Minus (-)</option>
+        <option value="multiply">Multiply (*)</option>
+        <option value="divide">Divide (/)</option>
+    </select>
+
+    <!-- Button to perform calculation -->
+    <button onclick="calculate()">Calculate</button>
+
+    <!-- Input field for result -->
+    <input type="text" id="input3" placeholder="Result" readonly>
+
+    <!-- JavaScript code -->
+    <script>
+        function calculate() {
+            // Get input values
+            let input1 = parseFloat(document.getElementById("input1").value);
+            let input2 = parseFloat(document.getElementById("input2").value);
+            let operation = document.getElementById("operation").value;
+
+            // Initialize result variable
+            let result;
+
+            // Perform the selected operation
+            if (operation === "plus") {
+                result = input1 + input2;
+            } else if (operation === "minus") {
+                result = input1 - input2;
+            } else if (operation === "multiply") {
+                result = input1 * input2;
+            } else if (operation === "divide") {
+                // Check if second input is not zero for division
+                if (input2 !== 0) {
+                    result = input1 / input2;
+                } else {
+                    result = "Cannot divide by zero";
+                }
+            }
+
+            // Display the result in the third input field
+            document.getElementById("input3").value = result;
+        }
+    </script>
+
+</body>
+</html>
+
